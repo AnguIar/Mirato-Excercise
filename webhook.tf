@@ -1,12 +1,12 @@
 resource "kubernetes_deployment" "webhook_deployment" {
   metadata {
     name      = "webhook-deployment"
-    namespace = "example1"
+    namespace = "demo"
     labels = {
       app = "webhook"
     }
     annotations = {
-      "cert-manager.io/inject-ca-from" = "example1/webhook1-certificate"
+      "cert-manager.io/inject-ca-from" = "demo/webhook1-certificate"
     }
   }
 
@@ -77,7 +77,7 @@ resource "kubernetes_deployment" "webhook_deployment" {
 resource "kubernetes_service" "webhook_service" {
   metadata {
     name      = "webhook-service"
-    namespace = "example1"
+    namespace = "demo"
   }
 
   spec {

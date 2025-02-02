@@ -2,7 +2,7 @@ resource "kubernetes_mutating_webhook_configuration" "mutating_webhook" {
   metadata {
     name      = "mutating-webhook"
     annotations = {
-      "cert-manager.io/inject-ca-from" = "example1/serving-certificate"
+      "cert-manager.io/inject-ca-from" = "demo/serving-certificate"
     }
     labels = {
       app = "webhook"
@@ -15,7 +15,7 @@ resource "kubernetes_mutating_webhook_configuration" "mutating_webhook" {
     client_config {
       service {
         name      = "webhook-service"
-        namespace = "example1"
+        namespace = "demo"
         path      = "/mutate"
         port      = 8080
       }
